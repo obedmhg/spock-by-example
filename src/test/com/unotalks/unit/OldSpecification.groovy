@@ -1,6 +1,7 @@
 package com.unotalks.unit
 
 import spock.lang.Specification
+import spock.lang.Subject
 
 
 class OldSpecification extends Specification {
@@ -28,5 +29,18 @@ class OldSpecification extends Specification {
         map.example == "new"
         old(map.example) == "test"
         map.example != old(map.example)
+    }
+
+    @Subject
+    AccountManager testObject =  new AccountManager();
+    def "should add founds to account"() {
+        given:
+        def account = new Account(accountNo: "123", balance: 60.0)
+        when:
+        testObject.addFounds(account, 40)
+        then:
+        account.getBalance() == 100
+        old(account.getBalance()) == 60
+
     }
 }

@@ -2,6 +2,7 @@ package com.unotalks.unit
 
 import spock.lang.FailsWith
 import spock.lang.Specification
+import spock.lang.Unroll
 
 
 class FirstSpecification extends Specification {
@@ -30,6 +31,7 @@ class FirstSpecification extends Specification {
         when:
         list.remove(0)
 
+
         then:
         list == [2, 3, 4]
     }
@@ -54,6 +56,7 @@ class FirstSpecification extends Specification {
     }
 
 
+    @Unroll
     def "numbers to the power of two"(int a, int b, int c) {
         expect:
         Math.pow(a, b) == c

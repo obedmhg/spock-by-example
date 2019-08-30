@@ -10,7 +10,6 @@ class VerificationSpecification extends Specification {
     @Subject
     File fileMock2 = Mock()
 
-
     def "should verify getName ran 3 times onf file and 1 on file2" () {
         when:
         def result = fileMock.getName()
@@ -27,12 +26,13 @@ class VerificationSpecification extends Specification {
         when:
         def result = fileMock.getName()
         result = fileMock.getName()
-        result = fileMock.getName()
         result = fileMock2.getName()
+        result = fileMock.getName()
+
         then:
         3 * fileMock.getName()
 
-        then:
+        and:
         1 * fileMock2.getName()
     }
 
@@ -46,10 +46,10 @@ class VerificationSpecification extends Specification {
         then:
         2 * fileMock.getName()
 
-        then:
+        and:
         1 * fileMock2.getName()
 
-        then:
+        and:
         1 * fileMock.getName()
     }
 

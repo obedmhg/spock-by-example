@@ -5,13 +5,35 @@ import lombok.Setter;
 
 public class Account {
 
-    @Getter @Setter
+    AccountType type = new AccountType();
     private String accountNo;
-
-    @Getter @Setter
     private long balance;
 
-    @Getter @Setter
-    AccountType type = new AccountType();
+    public AccountType getType() {
+        return type;
+    }
+
+    public void setType(AccountType type) {
+        this.type = type;
+    }
+
+    public long getBalance() {
+
+        return balance;
+    }
+
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
+
+    public String getAccountNo() {
+
+        return accountNo;
+    }
+
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
+    }
+
 
 }

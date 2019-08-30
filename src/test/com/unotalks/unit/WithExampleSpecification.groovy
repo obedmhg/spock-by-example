@@ -6,7 +6,8 @@ import spock.lang.Specification
 class WithExampleSpecification extends Specification {
 
     def "working with with"() {
-        def account = new Account(accountNo: "123", balance: 50.0)
+        given:
+        def account = new Account(accountNo: "123", balance: 60.0)
 
         expect:
         with(account) {
