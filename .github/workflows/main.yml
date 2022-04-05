@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Dependency Check
+on: [push]
+
+jobs:
+  depchecktest:
+    runs-on: ubuntu-latest
+    name: depecheck_test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Depcheck
+        uses: dependency-check/Dependency-Check_Action@main
+        id: Depcheck
+        with:
+          project: 'spock-by-example'
+          path: '.'
+          format: 'HTML'    
+          others: ''
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
+        with:
+           name: Depcheck report
+           path: ${{github.workspace}}/reports
